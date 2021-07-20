@@ -1,7 +1,6 @@
 package com.example.list;
 
 import com.example.classic.Father;
-import org.apache.mina.util.CopyOnWriteMap;
 
 import java.util.*;
 
@@ -24,6 +23,5 @@ public class AllMap {
 
     Map<Object, Object> synchronizedMap = Collections.synchronizedMap(hashMap);
 
-    Map<Object, Object> copyOnWriteMap = new CopyOnWriteMap<>();
   }
 }
