@@ -1,9 +1,9 @@
 package com.example.thread_test;
 
-import java.util.concurrent.Callable;
+import com.example.thread_test.common.Task;
+
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author changwei.zheng
@@ -30,12 +30,4 @@ public class CallableTest {
   }
 }
 
-class Task implements Callable<Integer> {
 
-  @Override
-  public Integer call() throws Exception {
-    System.out.println(1);
-    TimeUnit.SECONDS.sleep(3);
-    return 1024;
-  }
-}
