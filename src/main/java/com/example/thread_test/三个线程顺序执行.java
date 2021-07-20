@@ -1,6 +1,9 @@
 package com.example.thread_test;
 
+import com.example.thread_test.common.Task;
 import com.example.thread_test.common.Work;
+
+import java.util.concurrent.FutureTask;
 
 /**
  * @author zcw @Description:
@@ -12,8 +15,8 @@ public class 三个线程顺序执行 {
 
   public static void main(String[] args) {
     test1();
-    System.out.println();
     test2();
+    test3();
   }
 
   public static void test1() {
@@ -52,4 +55,16 @@ public class 三个线程顺序执行 {
     thread2.start();
     thread3.start();
   }
+
+  public static void test3(){
+      FutureTask<Integer> futureTask1 = new FutureTask<>(new Task());
+      FutureTask<Integer> futureTask2 = new FutureTask<>(new Task(futureTask1));
+      FutureTask<Integer> futureTask3 = new FutureTask<>(new Task(futureTask2));
+      new Thread(futureTask1, "1").start();
+      new Thread(futureTask2, "2").start();
+      new Thread(futureTask3, "3").start();
+  }
+    public static void test4(){
+
+    }
 }
