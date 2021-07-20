@@ -1,5 +1,6 @@
 package com.example.lock;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -88,8 +89,13 @@ public class SyncAndReentrantLockDemo2 {
 
     new Thread(
             () -> {
-              for (int i = 0; i < 10; i++) {
+              for (int i = 0; i < 2; i++) {
                 shareResource.print5();
+                try {
+                  TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                  e.printStackTrace();
+                }
               }
             },
             "A")
@@ -97,7 +103,7 @@ public class SyncAndReentrantLockDemo2 {
 
     new Thread(
             () -> {
-              for (int i = 0; i < 10; i++) {
+              for (int i = 0; i < 2; i++) {
                 shareResource.print10();
               }
             },
@@ -106,7 +112,7 @@ public class SyncAndReentrantLockDemo2 {
 
     new Thread(
             () -> {
-              for (int i = 0; i < 10; i++) {
+              for (int i = 0; i < 2; i++) {
                 shareResource.print15();
               }
             },

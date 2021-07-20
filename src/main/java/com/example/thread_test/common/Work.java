@@ -1,7 +1,10 @@
 package com.example.thread_test.common;
 
 public class Work implements Runnable {
+
   private Thread thread;
+
+  public Work() {}
 
   public Work(Thread thread) {
     this.thread = thread;
