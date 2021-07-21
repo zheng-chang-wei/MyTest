@@ -16,6 +16,7 @@ public class AllList {
       linkedList.remove(0);
       List<Object> vector = new Vector<>();
       List<Object> synchronizedArrayList = Collections.synchronizedList(objects);
+      synchronizedArrayList.add(1);
       List<Object> synchronizedLinkedList = Collections.synchronizedList(linkedList);
 
       List<Object> copyOnWriteArrayList = new CopyOnWriteArrayList<>();

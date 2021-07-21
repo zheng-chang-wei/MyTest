@@ -47,21 +47,23 @@ public class StringTest2 {
         String str3 = "ab";
         String str4 = str1 + str2;
         String str5 = new String("ab");
-        System.out.println(str3==str4);
+        System.out.println(str3 == str4);
         System.out.println(str5.equals(str3));
         System.out.println(str5 == str3);
         System.out.println(str4.intern() == str3);
         System.out.println(str5.intern() == str4);
     }
+
     @Test
     public void test4() {
         //常量AA不存在，所以第一步在常量池中创建了常量AA
         String a2 = new String("AA") + new String("BB");
-        String a3 = new String("AA")+new String("BB"); //创建对象AA
+        String a3 = new String("AA") + new String("BB"); //创建对象AA
         String a4 = new String("AA"); //创建对象AA
         System.out.println(a3 == a3.intern()); //true 说明常量池未创建常量AABB
         System.out.println(a4 == a4.intern()); //false 说明常量池创建了AA
     }
+
     @Test
     public void test5() {
         String a1 = "AABB";
